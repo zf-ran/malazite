@@ -1,0 +1,104 @@
+@layer components;
+
+/** DIALOG */
+dialog {
+	animation-duration: var(--dialog-transition-duration);
+	animation-timing-function: ease-in-out;
+	border: 1px solid var(--border-mute);
+	background-color: var(--background);
+	border-radius: 12px;
+	padding: 1.5em;
+	width: calc(100% - 2em);
+	max-width: 500px;
+	box-sizing: border-box;
+
+	&.destructive {
+		border: 1px solid hsla(from var(--error) h s l / 50%);
+		background-color: color-mix(
+			in srgb,
+			var(--background) 85%,
+			var(--error) 15%
+		);
+		--primary: var(--error);
+	}
+
+	&.opening {
+		animation-name: dialog-open;
+
+		&::backdrop {
+			animation-name: dialog-open;
+		}
+	}
+
+	&.closing {
+		animation-name: dialog-close;
+
+		&::backdrop {
+			animation-name: dialog-close;
+		}
+	}
+
+	/* CHILDS */
+	.dialog-title {
+		margin-bottom: 8px;
+	}
+	&.destructive .dialog-title {
+		color: var(--error);
+	}
+
+	.dialog-message {
+		color: var(--text);
+	}
+
+	&::backdrop {
+		backdrop-filter: blur(2px);
+		animation-duration: var(--dialog-transition-duration);
+		animation-timing-function: ease;
+	}
+}
+
+dialog .dialog-inputs,
+form .form-inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-top: 1em;
+}
+
+dialog menu,
+form menu {
+	padding: 0;
+	margin-bottom: 0;
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+.form-message {
+	margin-block: 0.5em;
+	color: var(--error);
+}
+
+.form-message:has(#message:empty) {
+	visibility: hidden;
+}
+
+@keyframes dialog-open {
+	from {
+		transform: scale(98%);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes dialog-close {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		transform: scale(98%);
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"html.format.indentInnerHtml": false,
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	}
+}

@@ -1,0 +1,34 @@
+@layer components;
+
+/** TABLE */
+table {
+	border-collapse: collapse;
+	overflow-x: auto;
+	margin-block: 1em;
+	width: 100%;
+
+	td,
+	th {
+		border-block: 1px solid var(--border-mute);
+		padding-inline: 16px;
+		vertical-align: text-top;
+		height: 32px;
+		vertical-align: middle;
+
+		&.tabular {
+			font-variant: tabular-nums;
+			text-align: right;
+		}
+
+		&.center {
+			text-align: center;
+		}
+	}
+
+	th {
+		text-align: center;
+		background: hsl(from var(--border-mute) h s l / 20%);
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+}

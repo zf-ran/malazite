@@ -1,0 +1,117 @@
+@layer components;
+
+/* TODO: REFACTOR */
+
+/** ASIDE */
+aside {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	background-color: var(--background);
+	border-right: 1px solid var(--border-mute);
+	width: 100%;
+	max-width: 300px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	padding: 16px;
+	box-sizing: border-box;
+	transform: translateX(-100%);
+	transition-property: transform;
+	transition-duration: 250ms;
+	transition-timing-function: ease;
+	z-index: 200;
+
+	&.open {
+		transform: translateX(0);
+	}
+
+	#close-sidebar {
+		display: flex;
+		font-size: 24px;
+		line-height: 32px;
+		align-items: baseline;
+		gap: 8px;
+		cursor: pointer;
+		user-select: none;
+		font-weight: 500;
+		letter-spacing: -5%;
+	}
+}
+
+aside #close-sidebar span.material-symbols-outlined {
+	align-self: center;
+	font-size: 1.3125em;
+	transition: scale var(--transition-duration);
+}
+aside #close-sidebar span.material-symbols-outlined:hover {
+	scale: 102%;
+}
+aside #close-sidebar span.material-symbols-outlined:active {
+	scale: 98%;
+}
+
+span.open-in-new {
+	font-size: 1em;
+	color: var(--text-mute);
+}
+
+.sidebar-navigation {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	flex: 1 0 0;
+	overflow-y: auto;
+}
+
+.sidebar-item {
+	font-weight: 700;
+}
+
+.sidebar-item a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: inherit;
+	padding: 0 1em;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: scale var(--transition-duration);
+	height: 40px;
+}
+.sidebar-item a:hover {
+	background-color: var(--background-accent);
+}
+.sidebar-item a:active {
+	scale: 98%;
+}
+
+.sidebar-item .label {
+	flex: 1 1 auto;
+}
+
+.sidebar-navigation hr {
+	margin-block: 0.5em;
+}
+
+/* Nested List */
+.sidebar-navigation .sidebar-navigation {
+	margin-left: 2em;
+}
+
+.sidebar-navigation .sidebar-navigation .sidebar-item {
+	font-weight: 400;
+}
+
+.sidebar-footer {
+	color: var(--text-mute);
+}
+
+.sidebar-footer .name {
+	text-align: center;
+	font-family: monospace;
+}

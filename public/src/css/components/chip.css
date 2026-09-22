@@ -1,0 +1,35 @@
+@layer components;
+
+/** CHIP */
+label.chip {
+	display: inline-block;
+	height: 24px;
+	padding: 0 12px;
+	border-radius: 8px;
+	font: var(--font--chip);
+	box-sizing: border-box;
+	border: 1px solid var(--border);
+	align-content: center;
+	color: var(--text);
+	transition:
+		color var(--transition-duration),
+		background-color var(--transition-duration),
+		border-color var(--transition-duration),
+		scale var(--transition-duration);
+	user-select: none;
+	cursor: pointer;
+
+	&:hover {
+		scale: 102%;
+	}
+
+	&:active {
+		scale: 98%;
+	}
+
+	&:has(input:checked) {
+		border: 1px solid transparent;
+		background: var(--secondary);
+		color: var(--primary);
+	}
+}

@@ -1,0 +1,152 @@
+main[data-path^='/problems/:problemId'] {
+	display: flex;
+	max-width: unset;
+
+	.left-panel,
+	.right-panel {
+		flex: 0 0 50%;
+	}
+
+	.right-panel {
+		display: flex;
+		flex-direction: column;
+
+		.submission-menu {
+			border-top: 1px solid var(--border-mute);
+			margin: 0;
+			padding: 0.5em;
+
+			display: flex;
+			align-items: center;
+
+			.submission-feedback {
+				flex: 1;
+			}
+		}
+	}
+
+	div.metadata {
+		margin-bottom: 1em;
+
+		div.title {
+			font-weight: bold;
+			font-size: 28.4px;
+			text-align: center;
+			letter-spacing: -5%;
+			margin-bottom: 0.5em;
+		}
+
+		div.stats {
+			display: flex;
+			justify-content: flex-end;
+			color: var(--text-mute);
+
+			span:not(:first-child)::before {
+				content: '·';
+				margin-inline: 4px;
+			}
+		}
+	}
+
+	#editor {
+		overflow: auto;
+	}
+
+	/** DESKTOP */
+	@media screen and (min-width: 701px) {
+		padding: 0;
+		margin: 0;
+		flex: 1;
+		min-height: 0;
+
+		body:has(&) {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+
+			header {
+				position: static;
+			}
+		}
+
+		.left-panel {
+			padding-inline: 1.5em;
+			padding-top: 2em;
+			overflow-y: auto;
+			height: 100%;
+		}
+
+		.right-panel {
+			border-left: 1px solid var(--border-mute);
+
+			#editor {
+				height: 100%;
+			}
+		}
+	}
+
+	/** MOBILE */
+	@media screen and (max-width: 700px) {
+		flex-direction: column;
+		gap: 1em;
+
+		.right-panel {
+			border-radius: 4px;
+			border: 1px solid var(--border-mute);
+
+			#editor {
+				height: 500px;
+			}
+		}
+	}
+}
+
+:root {
+	--editor--keyword: #0000ff;
+	--editor--function: #74531f;
+	--editor--variable: #0451a5;
+	--editor--type: #267f99;
+	--editor--string: #a31515;
+	--editor--number: #098658;
+	--editor--comment: #008000;
+	--editor--operator: #000000;
+	--editor--selection: #add6ff;
+	--editor--cursor: #000000;
+
+	@media (prefers-color-scheme: dark) {
+		--editor--keyword: #569cd6;
+		--editor--function: #dcdcaa;
+		--editor--variable: #9cdcfe;
+		--editor--type: #4ec9b0;
+		--editor--string: #ce9178;
+		--editor--number: #b5cea8;
+		--editor--comment: #6a9955;
+		--editor--operator: #d4d4d4;
+		--editor--selection: #264f78;
+		--editor--cursor: #aeafad;
+	}
+}
+
+span.verdict {
+	font-size: 14px;
+	padding: 1px 4px;
+	margin-block: 1px;
+	border-radius: 4px;
+	background-color: hsl(from var(--verdict-color) h s l / 40%);
+
+	&[data-verdict='ac'] {
+		--verdict-color: var(--success);
+	}
+	&[data-verdict='wa'] {
+		--verdict-color: var(--error);
+	}
+	&[data-verdict='tle'],
+	&[data-verdict='mle'] {
+		--verdict-color: var(--warning);
+	}
+	&[data-verdict='rte'],
+	&[data-verdict='ce'],
+	&[data-verdict='se'] {
+		--verdict-color: var(--important);
+	}
+}

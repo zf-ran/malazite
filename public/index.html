@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Malazite</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="/dist/css/main.css">
+
+	<script type="module" src="/dist/js/main.js"></script>
+</head>
+
+<body>
+	<header>
+		<ul id="top-navigation" data-search="false">
+			<li class="action" id="open-sidebar" aria-label="Open sidebar" aria-controls="sidebar" aria-expanded="false">
+				<span class="material-symbols-outlined">menu</span>
+			</li>
+			<li id="logo">
+				<span class="logo-logo">M<sup>Z</sup></span>
+				<span class="logo-wordmark">malazite.</span>
+			</li>
+		</ul>
+	</header>
+	<aside id="sidebar" aria-hidden="true">
+		<div id="close-sidebar" role="button" aria-label="Close sidebar" aria-controls="sidebar">
+			<span class="material-symbols-outlined">arrow_back</span>
+			<span class="label">CLOSE</span>
+		</div>
+		<ul class="sidebar-navigation">
+			<li class="sidebar-item">
+				<a href="#/home" data-link>
+					<span class="material-symbols-outlined">home</span>
+					<span class="label">Home</span>
+				</a>
+			</li>
+			<li class="sidebar-item">
+				<a href="#/problems" data-link>
+					<span class="material-symbols-outlined">code</span>
+					<span class="label">Problems</span>
+				</a>
+				<ul class="sidebar-navigation">
+					<li class="sidebar-item">
+						<a href="#/problems/recent" data-link>
+							<span class="material-symbols-outlined">schedule</span>
+							<span class="label">Recent</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="#/problems/difficulty" data-link>
+							<span class="material-symbols-outlined">build</span>
+							<span class="label">Difficulty</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<hr>
+			<li class="sidebar-item">
+				<a href="#/auth/login" data-link>
+					<span class="material-symbols-outlined">login</span>
+					<span class="label">Login</span>
+				</a>
+			</li>
+			<li class="sidebar-item">
+				<a href="#/auth/signup" data-link>
+					<span class="material-symbols-outlined">person_add</span>
+					<span class="label">Signup</span>
+				</a>
+			</li>
+			<hr>
+			<li class="sidebar-item">
+				<a href="#/help" data-link>
+					<span class="material-symbols-outlined">help</span>
+					<span class="label">Help</span>
+				</a>
+			</li>
+		</ul>
+	</aside>
+
+	<main id="app"></main>
+</body>
+
+</html>

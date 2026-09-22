@@ -1,0 +1,115 @@
+@layer components;
+
+/** BUTTON */
+button {
+	display: inline-flex;
+	align-items: center;
+	border: none;
+	margin: 0;
+	gap: 4px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition-property: scale, rotate;
+	transition-duration: var(--transition-duration);
+	transform-origin: 50% 50%;
+	border: 1px solid var(--primary);
+
+	span.material-symbols-outlined {
+		font-size: 22px;
+	}
+
+	&.icon {
+		justify-content: center;
+		width: 40px;
+	}
+
+	/** HIERARCHY */
+	/*- PRIMARY */
+	background: var(--primary);
+	color: var(--background);
+
+	&.secondary {
+		background: transparent;
+		color: var(--primary);
+	}
+
+	&.tertiary {
+		background: transparent;
+		color: var(--primary);
+		border: none;
+	}
+
+	/** SIZE */
+	/*- MEDIUM */
+	font: var(--font--button--m);
+	padding: 0 16px;
+	height: 40px;
+
+	&.small {
+		font: var(--font--button--s);
+		padding: 0 12px;
+		height: 32px;
+
+		span.material-symbols-outlined {
+			font-size: 19px;
+		}
+
+		&.icon {
+			width: 32px;
+		}
+	}
+
+	&.large {
+		font: var(--font--button--l);
+		padding: 0 20px;
+		height: 48px;
+
+		span.material-symbols-outlined {
+			font-size: 25px;
+		}
+
+		&.icon {
+			width: 48px;
+		}
+	}
+
+	/** STATES */
+	&:enabled {
+		&:focus-visible {
+			outline: 2px dashed var(--primary) !important;
+			border: 1px solid transparent;
+		}
+
+		&:hover {
+			scale: 102%;
+		}
+
+		&:active {
+			scale: 98%;
+		}
+	}
+
+	&:disabled {
+		filter: saturate(20%);
+		cursor: not-allowed;
+	}
+
+	&.destructive {
+		--primary: var(--error);
+	}
+}
+
+/*- FAB */
+button.fab {
+	position: absolute;
+	width: 3.5em;
+	height: 3.5em;
+	border-radius: 1em;
+	padding: 1em;
+	box-shadow: 1px 0 8px 0 hsl(from var(--text) h s l / 20%);
+	border-width: 0;
+
+	span.material-symbols-outlined {
+		font-size: 1.5em;
+	}
+}

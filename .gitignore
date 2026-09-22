@@ -1,0 +1,12 @@
+node_modules
+
+# Bundled
+dist
+
+# App data
+problems/*
+data/data.db
+
+# Packaged releases
+release
+release.tar.gz
