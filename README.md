@@ -2,7 +2,8 @@
 
 Malazite is a self-hosted Python programming judge.
 
-> [!NOTE] Stack
+> [!NOTE]
+> **Stack**
 >
 > - Runtime: [Bun](https://bun.com)
 > - Backend: [Fastify](https://fastify.dev)
